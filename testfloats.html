@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>浮动+布局</title>
+<link type="text/css" rel="stylesheet" href="floats.css" />
+<script type="text/javascript" src="jquery-1.4.min.js"></script>
+<style type="text/css">
+.div1{ position:absolute; width:500px; height:100px; border:2px solid #144827; background:#B9E6D0;}
+</style>
+</head>
+
+<body>
+
+<div class="bigscreen">
+常见页面布局之一是分列，同一行中有若干列内容。有如下几种实现方式。
+
+
+<div class="tiph1">一.之前比较常用的方式：<br />使用float:left以及float:right来控制内容向左以及向右，这种方式实际上是使元素在内容上浮动出来，看起来脱离了前后的文本流，容易造成显示混乱。一般需要做一些处理来使得元素显示正常。</div>
+
+<div class="tiph2">0.  左侧内容框float:left，右侧内容框float:right，父元素没有添加清除浮动的属性，此时子元素与父元素脱离，父元素中没有子元素来撑开，高度为0，父元素设置的背景颜色不能显示。</div>
+<div class="cfloat">
+		<div class="fleft addheight">
+		    左侧内容框 float:left; height:60px;
+		</div>
+		<div class="fright addheight">
+		    右侧内容框 float:right; height:60px;
+		</div>
+</div><div class="clear"></div>
+
+<div class="tiph2">1. 左侧内容框float:left，右侧内容框float:right，父元素添加属性overflow:hidden;height:40px，清除浮动，此时父元素宽度默认显示100%。注意这个元素同时会造成超出范围的部分被隐藏。<br>
++ 本例中子元素只能显示与父元素高度相同的40px。但是实际上这种情况下一般不会给父元素定义高度，在此仅仅表示一下，这个清除浮动的方法有可能会出现的问题。<br>
++ 另外还有个问题是相对于父元素的相对定位元素的隐藏。<a href="javascript:void(0)" class="cption1">点击查看/隐藏相对定位元素</a> 而相对页面的相对定位元素则不会有问题 <a href="javascript:void(0)" class="cption2">查看相对页面定位元素</a><br>
++ 所以这个方法适用于没有相对父元素的相对定位元素以及高度不限制的情况使用。</div>
+<div class="cfloat ohidden" style=" height:40px; position:relative;"><div style=" position:absolute; right:-35px; top:22px; background:#fff; border:1px solid red; display:none;">相对定位元素只能看到一半。。。。。。</div>
+		<div class="fleft addheight">
+		    左侧内容框 float:left; height:60px;
+		</div>
+		<div class="fright addheight">
+		    右侧内容框 float:right; height:60px;
+		</div>
+</div>
+
+<div class="tiph2">2. 左侧内容框float:left，右侧内容框float:right，父元素添加属性float:left（float:right也可，根据具体需求来定）以及玫红色边框，此时父元素和子元素一起浮动（IE7一以下中显示与其他不同）。</div>
+<div class="cfloat fleft" style=" border:5px solid #ED2268;">
+		<div class="fleft addheight">
+		    左侧内容框 float:left; height:60px;
+		</div>
+		<div class="fright addheight">
+		    右侧内容框 float:right; height:60px;
+		</div>
+</div><div class="clear"></div>
+
+<div class="tiph2">3. 左侧内容框float:left，右侧内容框float:right，在左右内容结束后添加一个clear:both的标签，清除浮动，此时父元素宽度默认显示100%。</div>
+<div class="cfloat">
+		<div class="fleft addheight">
+		    左侧内容框 float:left; height:60px;
+		</div>
+		<div class="fright addheight">
+		    右侧内容框 float:right; height:60px;
+		</div>
+		<div class="clear"></div>
+</div>
+
+<div class="tiph2">4. 如果只有一个按钮需要在右侧浮动，标题正常显示在左，此时为了兼容ie7，需要将float:right的元素挪到标题文字前面。</div>
+<div class="cfloat" style="padding:4px 0;">
+		<span class="fright">我是右侧按钮 在ie7正常</span>我是标题文字
+</div>
+<div class="cfloat" style="padding:4px 0;">
+		我是标题文字<span class="fright">我是右侧按钮 在ie7不正常</span>
+</div>
+
+
+<div class="tiph1" style=" margin-top:100px;">二.一般用在并列的菜单栏里的方式：<br />使用display:inline-block使元素平铺,IE7及以下版本需要特殊定义。这个时候需要注意的是，如果想要所有元素展示在同一行，元素宽度以及间距之和不要超过总宽度，当然也可以根据需要制造多行效果。</div>
+
+
+<div class="tiph2">1. 默认效果</div>
+<div class="cfloat">
+		<div class="disinbl">元素1</div>
+		<div class="disinbl">元素2</div>
+		<div class="disinbl">元素3</div>
+		<div class="disinbl">元素4</div>
+		<div class="disinbl">元素5</div>
+		<div class="disinbl">元素6</div>
+		<div class="disinbl">元素7</div>
+		<div class="disinbl">元素8</div>
+		<div class="disinbl">元素9</div>
+		<div class="disinbl">元素10</div>
+		<div class="disinbl">元素11</div>
+		<div class="disinbl">元素12</div>
+</div>
+
+<div class="tiph2">2. 居中效果</div>
+<div class="cfloat" style=" text-align:center;">
+		<div class="disinbl">元素1</div>
+		<div class="disinbl">元素2</div>
+		<div class="disinbl">元素3</div>
+		<div class="disinbl">元素4</div>
+		<div class="disinbl">元素5</div>
+		<div class="disinbl">元素6</div>
+		<div class="disinbl">元素7</div>
+		<div class="disinbl">元素8</div>
+		<div class="disinbl">元素9</div>
+		<div class="disinbl">元素10</div>
+		<div class="disinbl">元素11</div>
+		<div class="disinbl">元素12</div>
+</div>
+
+<div class="tiph2">3. 元素过多于是另起一行显示</div>
+<div class="cfloat">
+		<div class="disinbl">元素1</div>
+		<div class="disinbl">元素2</div>
+		<div class="disinbl">元素3</div>
+		<div class="disinbl">元素4</div>
+		<div class="disinbl">元素5</div>
+		<div class="disinbl">元素6</div>
+		<div class="disinbl">元素7</div>
+		<div class="disinbl">元素8</div>
+		<div class="disinbl">元素9</div>
+		<div class="disinbl">元素10</div>
+		<div class="disinbl">元素11</div>
+		<div class="disinbl">元素12</div>
+		<div class="disinbl">元素13</div>
+		<div class="disinbl">元素14</div>
+		<div class="disinbl">元素15</div>
+		<div class="disinbl">元素16</div>
+		<div class="disinbl">元素17</div>
+		<div class="disinbl">元素18</div>
+		<div class="disinbl">元素19</div>
+		<div class="disinbl">元素20</div>
+		<div class="disinbl">元素21</div>
+		<div class="disinbl">元素22</div>
+		<div class="disinbl">元素23</div>
+</div>
+
+<div class="tiph2">4. 自定义宽度制造多行多列效果，为了使宽度表述得更加明白无误，需要word-spacing来消去浏览器给元素加的默认间距。</div>
+<div class="cfloat dis2">
+		<div class="disinbl">元素1</div>
+		<div class="disinbl">元素2</div>
+		<div class="disinbl">元素3</div>
+		<div class="disinbl">元素4</div>
+		<div class="disinbl">元素5</div>
+</div>
+
+
+<div class="tiph1" style=" margin-top:100px;">三.现代浏览器常用的方式：<br />使用float:left以及float:right来控制内容向左以及向右，在父元素使用伪元素来清除浮动。</div>
+
+
+<div class="tiph2">1. 左侧内容框float:left，右侧内容框float:right，在父元素上使用伪元素:after来设置一个空元素，等同于在后面添加"div style='clear:both'"。ie7及以下版本不支持，此时则可以给父元素在ie7下单独设置一些属性，推荐使用width、zoom。</div>
+
+<div class="cfloat clearfix">
+		<div class="fleft addheight">
+		    左侧内容框 float:left; height:60px;
+		</div>
+		<div class="fright addheight">
+		    右侧内容框 float:right; height:60px;
+		</div>
+</div><div class="clear"></div>
+
+
+<div class="tiph2">2. ie浏览器清除浮动，在ie7及以下中查看效果——元素添加属性zoom:1，首选方法，不会引起其他问题。</div>
+<div class="cfloat" style=" zoom:1;">
+		<div class="fleft addheight">
+		    左侧内容框 float:left; height:60px;
+		</div>
+		<div class="fright addheight">
+		    右侧内容框 float:right; height:60px;
+		</div>
+</div><div class="clear"></div>
+
+<div class="tiph2">3. ie浏览器清除浮动，在ie7及以下中查看效果——元素添加属性width:100%，一般也不会引起其他问题。</div>
+<div class="cfloat" style="width:100%;">
+		<div class="fleft addheight">
+		    左侧内容框 float:left; height:60px;
+		</div>
+		<div class="fright addheight">
+		    右侧内容框 float:right; height:60px;
+		</div>
+</div><div class="clear"></div>
+
+<div class="tiph2">4. ie浏览器清除浮动，在ie7及以下中查看效果——元素添加属性min-width或者min-height，但是ie6及以下不支持。</div>
+<div class="cfloat" style=" min-width:500px;">
+		<div class="fleft addheight">
+		    左侧内容框 float:left; height:60px;
+		</div>
+		<div class="fright addheight">
+		    右侧内容框 float:right; height:60px;
+		</div>
+</div><div class="clear"></div>
+
+<div class="cfloat" style=" min-height:40px;">
+		<div class="fleft addheight">
+		    左侧内容框 float:left; height:60px;
+		</div>
+		<div class="fright addheight">
+		    右侧内容框 float:right; height:60px;
+		</div>
+</div><div class="clear"></div>
+
+
+<div class="tiph2">★ 综上所述，在父元素上使用伪元素:after来设置一个空元素，同时给父元素设置zoom:1。</div>
+<div class="cfloat clearfix" style=" zoom:1;">
+		<div class="fleft addheight">
+		    左侧内容框 float:left; height:60px;
+		</div>
+		<div class="fright addheight">
+		    右侧内容框 float:right; height:60px;
+		</div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+$(".cption1").click(function() {
+    if (this.className == "cption1") {
+        $(this).parent().next().children("div").eq(0).show();
+        this.className = "add1 cption1";
+    } else {
+        $(this).parent().next().children("div").eq(0).hide();
+        this.className = "cption1";
+    }
+})
+
+$(".cption2").hover(function(ev) {
+		$("body").append("<div class='div1' style='left:"+ ev.pageX +"px;top:"+($(".cption2").offset().top + 15)+"px;'></div>");
+}).mousemove(function(ev) {
+	    $(".div1").css({"left":ev.pageX+"px","top":($(".cption2").offset().top + 15)+"px" });
+}).mouseout(function(ev) {
+        $(".div1").remove();
+})
+
+
+//$(".cption2").hover(function(ev) {
+//    if ($(".div1").length <= 0) {
+//		$("body").append("<div class='div1' style='left:"+ ev.pageX +"px;top:"+($(".cption2").offset().top + 15)+"px;'></div>");
+//    } else {
+//	    $(".div1").css({"left":ev.pageX+"px","top":($(".cption2").offset().top + 15)+"px" });
+//    }
+//})
+//$(".cption2").mousemove(function(ev) {
+//    if ($(".div1").length > 0) {
+//	    $(".div1").css({"left":ev.pageX+"px","top":($(".cption2").offset().top + 15)+"px" });
+//    }
+//})
+//$(".cption2").mouseout(function(ev) {
+//    if ($(".div1").length > 0) {
+//        $(".div1").remove();
+//    }
+//})
+
+
+
+//    $(".cption2").hover(function (e) {
+//        $("body").append("<div class='div1' style='left:"+ (e.pageX) +"px;top:"+($(".cption2").offset().top+15 )+"px;'></div>");
+//    }, function () { 
+//        $(".div1").remove();
+//    }).mousemove(function (e) { 
+//        $(".div1").css({ "top": ($(".cption2").offset().top + 15) + "px", "left": (e.pageX) + "px" }); 
+//    }); 
+
+
+</script>
+</body>
+</html>
