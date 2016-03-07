@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>表格测试</title>
+<link type="text/css" rel="stylesheet" href="tables.css" />
+<script type="text/javascript" src="jquery-1.4.min.js"></script>
+</head>
+
+<body>
+<div class="bigscreen">
+
+<div>table表格样式比较纠结，一般来说，在没有设定宽度的情况下，是会根据单元格内部内容的大小来改变单元格的大小以及整个表格的大小。当设定了表格总宽度而没有设定单元格宽度的时候，则只有单元格宽度会根据内部内容的大小而改变。这样在内部内容宽度不定的情况下，同一个table会在不同情况下、不同页面中展示出不同的效果。本地页面需要使用非chrome、opera浏览器打开。</div>
+
+
+<iframe id="if1" name="ifn1" src="testablee1.html" frameborder="0" width="100%" scrolling="no"></iframe>
+<iframe id="if2" name="ifn2" src="testablee2.html" frameborder="0" width="100%" scrolling="no"></iframe>
+<iframe id="if3" name="ifn3" src="testablee3.html" frameborder="0" width="100%" scrolling="no"></iframe>
+<iframe id="if4" name="ifn4" src="testablee4.html" frameborder="0" width="100%" scrolling="no"></iframe>
+<iframe id="if5" name="ifn5" src="testablee5.html" frameborder="0" width="100%" scrolling="no"></iframe>
+<iframe id="if6" name="ifn6" src="testablee6.html" frameborder="0" width="100%" scrolling="no"></iframe>
+<iframe id="if7" name="ifn7" src="testablee7.html" frameborder="0" width="100%" scrolling="no"></iframe>
+<iframe id="if8" name="ifn8" src="testablee8.html" frameborder="0" width="100%" scrolling="no"></iframe>
+<iframe id="if9" name="ifn9" src="testablee9.html" frameborder="0" width="100%" scrolling="no"></iframe>
+
+
+</div>
+
+<script type="text/javascript">
+
+$(window).load( function(){
+	ifrheight();
+})
+
+$(window).resize( function(){
+	ifrheight();
+})
+
+function ifrheight(){
+	var ifr=$("iframe");
+	for(var xx=0;xx<ifr.length;xx++){
+	   //setIframeHeight(ifr[xx]);
+	   ifmHtAuto(ifr[xx].id);
+	}
+}
+
+function ifmHtAuto(obj){ 
+	var ifm= document.getElementById(obj);   
+	var subWeb = document.frames ? document.frames[obj].document : ifm.contentDocument;   
+	if(ifm != null && subWeb != null) {
+	   ifm.height=subWeb.body.offsetHeight+40;
+	}  
+  }
+
+
+function setIframeHeight(iframe){
+  try{
+    if(iframe.attachEvent){
+      iframe.attachEvent("onload", function(){
+        iframe.height =  iframe.contentWindow.document.documentElement.scrollHeight;
+      });
+      return;
+    }else{
+      iframe.height = iframe.contentDocument.body.scrollHeight+40;
+      return;				 
+    }	 
+  }catch(e){
+    throw new Error('setIframeHeight Error');
+  }
+}
+
+</script>
+</body>
+</html>

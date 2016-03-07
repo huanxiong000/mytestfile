@@ -1,0 +1,23 @@
+body{ background:#eee; color:#0D8181; font-size:12px;}
+
+.bigscreen{ margin:10px; border:3px double #0000CC; padding:10px;}
+
+.divov{ overflow-x:auto;}
+.tiph6{ margin:40px 0 10px;font-size:1.1em; padding:4px 10px; color:#FF3366; background:#FFFFCC;}
+iframe .tiph6 a{ color:red;}
+img{ margin-top:10px; border:3px solid #DB5D5D;}
+.spanbd span{ display:inline-block; background:#fb7e7e; width:12px; height:12px; line-height:12px; text-align:center; color:#fff; margin-right:1px; border-radius:50%;}/*Ô²×ÖÄ¸Í¼±ê*/
+
+.test{ width:100%; border-collapse:collapse; margin-top:4px;}
+.test th{ background:#fafadb;}
+.test th,.test td{ border:1px solid #064444;}
+
+.test1 td{ min-width:50px;}
+
+.test3 td{ padding:2px; box-sizing:border-box;}
+
+.test4{ width:1000px;}
+
+.test5 td{ vertical-align:top; height:17px; padding-top:3px;}
+
+.test9{ table-layout:fixed;}
