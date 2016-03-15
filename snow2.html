@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>等一朵花开的时间-snow</title>
+<style>
+body{ background:#3A3535; position:relative;}
+li{ list-style:none;}
+
+.sli1{ width:2px; height:70px; background:#fff; position:absolute; margin-left:100px; bottom:50%; transform-origin:bottom;}
+.sli1 li{ width:2px; background:#fff; position:absolute; transform-origin:bottom;}
+.sli1 li:nth-child(1){ bottom:40px; left:0; height:10px; transform:rotate(60deg);}
+.sli1 li:nth-child(2){ bottom:40px; right:0; height:10px; transform:rotate(-60deg);}
+.sli1 li:nth-child(3){ bottom:60px; left:0; height:4px; transform:rotate(60deg);}
+.sli1 li:nth-child(4){ bottom:60px; right:0; height:4px; transform:rotate(-60deg);}
+.sli1 li:nth-child(5){ bottom:80px; left:0; height:0; transform:rotate(60deg);}
+.sli1 li:nth-child(6){ bottom:80px; right:0; height:0; transform:rotate(-60deg);}
+
+.sli1:nth-child(2){ transform:rotate(60deg);}
+.sli1:nth-child(3){ transform:rotate(120deg);}
+.sli1:nth-child(4){ transform:rotate(180deg);}
+.sli1:nth-child(5){ transform:rotate(240deg);}
+.sli1:nth-child(6){ transform:rotate(300deg);}
+
+.sbdr{ transition:transform 10s linear; width:200px; height:200px;}
+.sbdr .sli1{ transition:height 10s linear;}
+.sbdr .sli1 li{ transition:height 10s linear;}
+.sbdr .sli1 li:nth-child(5),.sbdr .sli1 li:nth-child(6){ transition:height 4s linear 6s;}
+
+.sbdr:hover{ transform:rotate(360deg); transform-origin:center;}
+.sbdr:hover .sli1{ height:100px;}
+.sbdr:hover .sli1 li:nth-child(1),.sbdr:hover .sli1 li:nth-child(2){ height:40px;}
+.sbdr:hover .sli1 li:nth-child(3),.sbdr:hover .sli1 li:nth-child(4){ height:20px;}
+.sbdr:hover .sli1 li:nth-child(5),.sbdr:hover .sli1 li:nth-child(6){ height:10px;}
+
+</style>
+</head>
+
+<body>
+<div class="sbdr">
+<div class="sli1">
+  <ul>
+    <li></li><li></li><li></li>
+    <li></li><li></li><li></li>
+  </ul>
+</div>
+<div class="sli1">
+  <ul>
+    <li></li><li></li><li></li>
+    <li></li><li></li><li></li>
+  </ul>
+</div>
+<div class="sli1">
+  <ul>
+    <li></li><li></li><li></li>
+    <li></li><li></li><li></li>
+  </ul>
+</div>
+<div class="sli1">
+  <ul>
+    <li></li><li></li><li></li>
+    <li></li><li></li><li></li>
+  </ul>
+</div>
+<div class="sli1">
+  <ul>
+    <li></li><li></li><li></li>
+    <li></li><li></li><li></li>
+  </ul>
+</div>
+<div class="sli1">
+  <ul>
+    <li></li><li></li><li></li>
+    <li></li><li></li><li></li>
+  </ul>
+</div>
+</div>
+
+</body>
+</html>

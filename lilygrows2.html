@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>等一朵花开的时间-lilygrows</title>
+<style>
+ body{ background:antiquewhite; perspective:1000px;}
+ .lily{ position:relative; width:500px; height:500px; padding-top:50px; padding-left:500px; transform:rotatey(90deg) rotatez(-50deg); transform-style:preserve-3d;}
+ 
+ .lily1{ transform-style:preserve-3d; position:absolute; width:100px; height:300px; transform:rotatex(60deg); transform-origin:bottom;}
+ .lily2{ transform:rotatey(60deg) rotatex(60deg);}
+ .lily3{ transform:rotatey(120deg) rotatex(60deg);}
+ .lily4{ transform:rotatey(300deg) rotatex(60deg);}
+ .lily5{ transform:rotatey(240deg) rotatex(60deg);}
+ .lily6{ transform:rotatey(180deg) rotatex(60deg);}
+ 
+ .ll1,.ll2,.ll3{ width:100px; position:absolute; transform-style:preserve-3d;}
+ .ll1{ bottom:0; height:100px;}
+ .ll2{ bottom:99px; transform:rotateX(-60deg); transform-origin:bottom; height:200px;}
+ .ll3{ bottom:99px; transform:rotateX(-60deg); transform-origin:bottom; height:100px;}
+ 
+ .ll2{ animation:growsll2 10s linear forwards;}
+ .ll3{ animation:growsll3 10s linear forwards;}
+ 
+ @keyframes growsll2{
+    0%{ transform:rotateX(-60deg);}
+    100%{ transform:rotateX(22deg);} 
+ }
+ @keyframes growsll3{
+    0%{ transform:rotateX(-60deg);}
+    100%{ transform:rotateX(27deg);} 
+ } 
+ 
+ .face,.back{ backface-visibility:visible; position:absolute;}
+ .face{ transform:translatez(1px); z-index:1;}
+ .back{ }
+ .ll2>.face,.ll2>.back{ width:100px; height:100px; bottom:0;}
+
+ .l1{ position:absolute; transform:translateZ(3px) rotatex(-60deg); bottom:0; width:1px; height:200px; transform-origin:bottom; transform-style:preserve-3d;}
+ .li1,.li2{ display:inline-block; width:2px; height:80px; background:#ff0; position:absolute; left:50px; transform-origin:bottom;}
+ .li1{ bottom:0;}
+ .li2{ bottom:80px; transform:rotatex(1deg);}
+ .li2:after{ content:""; display:block; width:6px; height:14px; background:#ff0; position:absolute; bottom:80px; left:-2.5px;}
+ 
+ .l1{ animation:growsl1 10s linear forwards;}
+ .li2{ animation:growsli2 10s linear forwards;}
+ 
+ @keyframes growsl1{
+    0%{ transform:translateZ(3px) rotatex(-60deg)}
+    100%{ transform:translateZ(3px) rotatex(-10deg)} 
+ }
+ @keyframes growsli2{
+    0%{ transform:rotatex(1deg);}
+    100%{ transform:rotatex(9deg);} 
+ }  
+
+ .face:before,.back:after{ content:""; position:absolute; display:block;}
+ 
+ .ll1>.face{ border-top:100px solid rgba(245,172,245,.8); border-left:50px solid transparent; border-right:50px solid transparent;}
+ .ll2>.face{ background:rgba(245,172,245,.8);}
+ .ll3>.face{ border-bottom:100px solid rgba(245,172,245,.8); border-left:50px solid transparent; border-right:50px solid transparent;}
+
+ .ll1>.face:before{ border-top:98px solid rgba(255,204,255,.8); border-left:49px solid transparent; border-right:49px solid transparent; left:-49px; bottom:2px;}
+ .ll2>.face:before{ background:rgba(255,204,255,.8); width:98px; height:100px; left:1px; top:0;}
+ .ll3>.face:before{ border-bottom:98px solid rgba(255,204,255,.8); border-left:49px solid transparent; border-right:49px solid transparent; left:-49px; top:2px;}
+ 
+ .ll1>.back{ border-top:100px solid rgba(241, 214, 241,.8); border-left:50px solid transparent; border-right:50px solid transparent;}
+ .ll2>.back{ background:rgba(241, 214, 241,.8);}
+ .ll3>.back{ border-bottom:100px solid rgba(241, 214, 241,.8); border-left:50px solid transparent; border-right:50px solid transparent;}
+ 
+ .ll1>.back:after{ border-top:98px solid rgba(255,255,255,.6); border-left:49px solid transparent; border-right:49px solid transparent; left:-49px; bottom:2px;}
+ .ll2>.back:after{ background:rgba(255,255,255,.6); width:98px; height:100px; left:1px; top:0;}
+ .ll3>.back:after{ border-bottom:98px solid rgba(255,255,255,.6); border-left:49px solid transparent; border-right:49px solid transparent; left:-49px; top:2px;}
+
+</style>
+
+</head>
+
+<body>
+<div class="lily">
+<div class="lily1">
+  <div class="l1"><ul><li class="li1"></li><li class="li2"></li></ul></div>
+  <div class="ll1"><div class="face"></div><div class="back"></div></div>
+  <div class="ll2"><div class="face"></div><div class="back"></div><div class="ll3"><div class="face"></div><div class="back"></div></div></div>
+</div>
+<div class="lily1 lily2">
+  <div class="l1"><ul><li class="li1"></li><li class="li2"></li></ul></div>
+  <div class="ll1"><div class="face"></div><div class="back"></div></div>
+  <div class="ll2"><div class="face"></div><div class="back"></div><div class="ll3"><div class="face"></div><div class="back"></div></div></div>
+</div>
+<div class="lily1 lily3">
+  <div class="l1"><ul><li class="li1"></li><li class="li2"></li></ul></div>
+  <div class="ll1"><div class="face"></div><div class="back"></div></div>
+  <div class="ll2"><div class="face"></div><div class="back"></div><div class="ll3"><div class="face"></div><div class="back"></div></div></div>
+</div>
+<div class="lily1 lily4">
+  <div class="l1"><ul><li class="li1"></li><li class="li2"></li></ul></div>
+  <div class="ll1"><div class="face"></div><div class="back"></div></div>
+  <div class="ll2"><div class="face"></div><div class="back"></div><div class="ll3"><div class="face"></div><div class="back"></div></div></div>
+</div>
+<div class="lily1 lily5">
+  <div class="l1"><ul><li class="li1"></li><li class="li2"></li></ul></div>
+  <div class="ll1"><div class="face"></div><div class="back"></div></div>
+  <div class="ll2"><div class="face"></div><div class="back"></div><div class="ll3"><div class="face"></div><div class="back"></div></div></div>
+</div>
+<div class="lily1 lily6">
+  <div class="l1"><ul><li class="li1"></li><li class="li2"></li></ul></div>
+  <div class="ll1"><div class="face"></div><div class="back"></div></div>
+  <div class="ll2"><div class="face"></div><div class="back"></div><div class="ll3"><div class="face"></div><div class="back"></div></div></div>
+</div>
+</div>
+
+</body>
+</html>
